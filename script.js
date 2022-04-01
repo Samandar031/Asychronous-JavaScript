@@ -1,8 +1,6 @@
-"use strict";
+'use strict';
 
-let a;
-navigator.geolocation.getCurrentPosition(function (e) {
-  a = e;
-});
+const btn = document.querySelector('.btn-country');
+const countriesContainer = document.querySelector('.countries');
 
-console.log(a);
+///////////////////////////////////////
