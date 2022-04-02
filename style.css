@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Varela+Round&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: 'Poppins', sans-serif;
+font-family: 'Varela Round', sans-serif;
 }
 
 html {
@@ -123,4 +127,30 @@ body {
   margin: 2rem;
   border: 3rem solid white;
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.search {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-bottom: 100px;
+}
+
+.search_input {
+  padding: 10px;
+  width: 400px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  height: 50px;
+  
+}
+
+.input_btn {
+  border: 2px solid rebeccapurple;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
 }
