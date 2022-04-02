@@ -42,18 +42,17 @@ const countriesContainer = document.querySelector('.countries');
 let input = document.querySelector('.search_input');
 let btnInput = document.querySelector('.input_btn');
 
+let ex = document.querySelector('.ex');
+
+let set = new Set([]);
+
 let boshqa;
 let c = 1;
+let one;
+let two;
 // console.log(boshqa);
-
-btnInput.addEventListener('click', function (e) {
-  e.preventDefault();
-
-  boshqa = input.value;
-  getCountry(boshqa);
-
-  input.value = '';
-});
+let d = [];
+let cc = [];
 
 const getCountry = function (country) {
   const request = new XMLHttpRequest();
@@ -63,15 +62,17 @@ const getCountry = function (country) {
 
   // 2.bu xatni yuboryapmiz
   request.send();
+  let html;
 
   // 3.barcha ma'lumotlar to'liqligicha yaratilgandan keyin ishlaydi
   request.addEventListener('load', function () {
     // 4.kelayotgan arrayni obyekt qilib olishimiz kk
     const [data] = JSON.parse(request.responseText);
-    console.log(data);
+    // console.log(data);
 
-    let html = `  
-    <article class="country">
+    html = `  
+    <article class="country" id="${boshqa}">
+    <div class="ex"><i class="fa-solid fa-xmark"></i></div>
     <img class="country__img" src="${data.flag}" />
     <div class="country__data">
     <h3 class="country__name">${data.name}</h3>
@@ -90,7 +91,53 @@ const getCountry = function (country) {
     countriesContainer.style.opacity = 1;
   });
 };
-
+// console.log(ex);
 getCountry('uzbekistan');
-getCountry('usa');
-getCountry('china');
+
+// ex.addEventListener('click', function () {
+//   // e.preventDefault();
+//   ex.style.backgroundColor = 'red';
+// });
+
+countriesContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('ex')) {
+    e.target.closest('.country').remove();
+    set.delete(e.target.closest('.country').id);
+    [...d] = set;
+    local();
+  }
+});
+
+getLocal();
+
+btnInput.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  boshqa = input.value;
+  // obj = boshqa.toLowerCase();
+  // getCountry(boshqa);
+
+  if (!d.includes(boshqa)) {
+    d.push(boshqa);
+    getCountry(boshqa);
+    local();
+    set.add(boshqa);
+  } else {
+    alert('Bor bu yerda');
+  }
+
+  // two = JSON.parse(localStorage.getItem('arr'));
+  input.value = '';
+});
+
+let local = () => {
+  localStorage.setItem('arr', JSON.stringify(d));
+};
+
+function getLocal() {
+  let data = JSON.parse(localStorage.getItem('arr'));
+  d = data;
+  d.forEach(element => {
+    getCountry(element);
+  });
+}
