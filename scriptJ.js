@@ -9,7 +9,7 @@ const getCountryInfo = function (country) {
   const request = new XMLHttpRequest();
   request.open('GET', `https://restcountries.com/v2/name/${country}`);
   request.send();
-  // console.log(request.responseText);
+  console.log(request.responseText);
 
   request.addEventListener('load', function () {
     const [data] = JSON.parse(request.responseText);
@@ -37,5 +37,3 @@ function renderHtml(data) {
   countriesContainer.style.opacity = 1;
 }
 getCountryInfo('usa');
-getCountryInfo('afg');
-getCountryInfo('uk');

@@ -62,19 +62,19 @@ const getCountry = function (country) {
     // 5.kelayotgan arrayni obyekt qilib olishimiz kk
     const [data] = JSON.parse(request.responseText);
 
-    let border = data.borders[0];
-    const request2 = new XMLHttpRequest();
-    request2.open('GET', `https://restcountries.com/v2/alpha/${border}`);
-    request2.send();
+    let border = data.borders;
+    border.forEach = val => {
+      const request2 = new XMLHttpRequest();
+      request2.open('GET', `https://restcountries.com/v2/alpha/${val}`);
+      request2.send();
 
-    request2.addEventListener('load', function () {
-      const [data2] = JSON.parse(request2.responseText);
-      data2.forEach = val => {
-        render(val, 'neighbour');
-      };
-    });
+      request2.addEventListener('load', function () {
+        const data2 = JSON.parse(request2.responseText);
+        render(data2, 'neighbour');
+      });
+    };
 
-    render(data);
+    // render(data);
   });
 };
 
