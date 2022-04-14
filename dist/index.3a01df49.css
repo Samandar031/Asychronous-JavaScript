@@ -1,0 +1,166 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Varela+Round&display=swap";
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  font-family: Varela Round, sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: #555;
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui;
+  display: flex;
+}
+
+.container {
+  flex-flow: column;
+  align-items: center;
+  display: flex;
+}
+
+.countries {
+  opacity: 0;
+  font-size: 2rem;
+  transition: opacity 1s;
+  display: flex;
+  position: relative;
+}
+
+.country {
+  width: 30rem;
+  background-color: #fff;
+  border-radius: .7rem;
+  margin: 0 3rem;
+  font-size: 1.8rem;
+  position: relative;
+  box-shadow: 0 2rem 5rem 1rem #0000001a;
+}
+
+.neighbour:before {
+  content: "Neighbour country";
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: absolute;
+  top: -4rem;
+}
+
+.neighbour {
+  margin-left: 0;
+  transform: scale(.8)translateY(1rem);
+}
+
+.country__img {
+  width: 30rem;
+  height: 17rem;
+  object-fit: cover;
+  background-color: #eee;
+  border-top-left-radius: .7rem;
+  border-top-right-radius: .7rem;
+}
+
+.country__data {
+  padding: 2.5rem 3.75rem 3rem;
+}
+
+.country__name {
+  margin-bottom: .7rem;
+  font-size: 2.7rem;
+}
+
+.country__region {
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 2.5rem;
+  font-size: 1.4rem;
+}
+
+.country__row:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.country__row span {
+  margin-right: 2rem;
+  font-size: 2.4rem;
+  display: inline-block;
+}
+
+.btn-country {
+  color: #fff;
+  cursor: pointer;
+  background-color: #ff4500;
+  border: none;
+  border-radius: .7rem;
+  padding: 2rem 5rem;
+  font-size: 2rem;
+}
+
+.images {
+  display: flex;
+}
+
+.images img {
+  width: 80rem;
+  margin: 4rem;
+  display: block;
+}
+
+.images img.parallel {
+  width: 40rem;
+  border: 3rem solid #fff;
+  margin: 2rem;
+  box-shadow: 0 2rem 5rem 1rem #0000001a;
+}
+
+.search {
+  width: 100vw;
+  height: 100px;
+  justify-content: center;
+  margin-bottom: 100px;
+  display: flex;
+}
+
+.search_input {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  margin-bottom: 100px;
+  padding: 10px;
+}
+
+.input_btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #639;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ex {
+  z-index: 11;
+  width: 50px;
+  height: 50px;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
